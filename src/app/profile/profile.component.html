@@ -1,45 +1,48 @@
+<br>
 <form action="">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Enter Github username" [(ngModel)]="username" name="username" (keyup)="findProfile()">
     </div>
 </form>
 <div *ngIf="profile">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            {{profile.name}} <small>({{profile.login}})</small><span *ngIf="profile.company"> , Works at {{profile.company}}</span> {{profile.location}}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{profile.name}} <small>({{profile.login}})</small><span *ngIf="profile.company"> , Works at {{profile.company}}</span> {{profile.location}}
+                </div>
+                <div class="panel-body">
+                    <img src="{{profile.avatar_url}}" height='250' weight='250' class="img-circle img-responsive" alt="user's profile picture">
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-sm-3">
-                    <img src="{{profile.avatar_url}}" class="img-circle img-responsive" alt="user's profile picture">
-                </div>
-                <div class="col-sm-5">
-                    <ul class="list-group">
-                        <li class="list-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
-                        <li class="list-group-item" *ngIf="profile.hireable">Available for hire</li>
-                        <li class="list-group-item" *ngIf="profile.blog"><a href="{{profile.blog}}" target="_blank">{{profile.blog}}></a></li>
-                        <li class="list-group-item" *ngIf="profile.email"><a href="emailto:{{profile.email}}">{{profile.email}}</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4">
-                    <div>
-                        <p>
-                            <span class="label label-default">{{profile.followers}} Followers</span>
-                            <span class="label label-default">Followings {{profile.following}}</span>
-                            <span class="label label-default">{{profile.public_gists}} Gists</span>
-                            <span class="label label-default">{{profile.public_repos}} Repositories</span>
-                        </p>
-                        <p><a href="{{profile.html_url}}" class="btn btn-success btn-sm" target="_blank">Github</a></p>
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
+                <li class="list-group-item" *ngIf="profile.hireable">Available for hire</li>
+                <li class="list-group-item" *ngIf="profile.blog"><a href="{{profile.blog}}" target="_blank">{{profile.blog}}></a></li>
+                <li class="list-group-item" *ngIf="profile.email"><a href="emailto:{{profile.email}}">{{profile.email}}</a></li>
+            </ul>
+        </div>
+        <div class="ghub">
+            <p>
+                <span class="btn btn-primary">{{profile.followers}} Followers</span>
+                <span class="btn btn-success">{{profile.following}} Followings</span>
+                <span class="btn btn-primary">{{profile.public_gists}} Gists</span>
+                <span class="btn btn-success">{{profile.public_repos}} Repositories</span>
+            </p>
+            <p><a href="{{profile.html_url}}" class="btn btn-success btn-sm" target="_blank">Github</a></p>
+        </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Repositories</h3>
-                            </div>
-                            <div class="panel-body" *ngFor="let repo of repos">
-                                <p class="clearfix">{{repo.name}}<a href="{{repo.html_url}}" class="btn btn-sm btn-warning pull-right" target="_blank">View Project on Github</a></p>
-                                <p>{{repo.description}}</p>
-                            </div>
-                        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Repositories</h3>
+                    </div>
+                    <div class="panel-body" *ngFor="let repo of repos">
+                        <p class="clearfix">{{repo.name}}<a href="{{repo.html_url}}" class="btn btn-sm btn-warning pull-right" target="_blank">View Project on Github</a></p>
+                        <p>{{repo.description}}</p>
                     </div>
                 </div>
             </div>
