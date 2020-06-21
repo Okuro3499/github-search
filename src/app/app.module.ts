@@ -10,12 +10,12 @@ import { ProfileService } from './profile.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
-    HttpClientModule
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ProfileService],
   bootstrap: [AppComponent]
