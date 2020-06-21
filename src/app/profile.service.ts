@@ -22,4 +22,11 @@ export class ProfileService {
       this.clientid + "&client_secret=" + this.clientsecret)
       .map(res => res);
   }
+  getProfileRepos() {
+    // tslint:disable-next-line: quotemark
+    return this.http.get("https://api.github.com/users/" + this.username + "/repos?client_id=" +
+      // tslint:disable-next-line: quotemark
+      this.clientid + "&client_secret=" + this.clientsecret)
+      .map(res => res);
+  }
 }
