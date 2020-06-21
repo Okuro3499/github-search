@@ -1,3 +1,8 @@
+<form action="">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter Github username" [(ngModel)]="username" name="username" (keyup)="findProfile()">
+    </div>
+</form>
 <div *ngIf="profile">
     <div class="panel panel-default">
         <div class="panel-heading">
