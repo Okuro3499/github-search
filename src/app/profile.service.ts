@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Injectable({
@@ -10,8 +10,8 @@ export class ProfileService {
   private clientid = 'a01ab69c664d5de39cdf';
   private clientsecret = 'fddb7b514cd5f7bd760449e5794ec7a64d650d12';
 
-  constructor(private http: Http) {
-    // tslint:disable-next-line: quotemark
+  constructor(private http: HttpClient) {
+    // tslint:disable-next-line: quotemark && semicolon
     console.log("Service is now ready!")
     this.username = 'Okuro3499';
   }
@@ -20,6 +20,6 @@ export class ProfileService {
     return this.http.get("https://api.github.com/users/" + this.username + "?client_id=" +
       // tslint:disable-next-line: quotemark
       this.clientid + "&client_secret=" + this.clientsecret)
-      .map(res => res.json());
+      .map(res => res);
   }
 }
