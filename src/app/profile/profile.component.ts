@@ -20,7 +20,9 @@ export class ProfileComponent implements OnInit {
       this.repos = repos;
     });
   }
-
+  findProfile(){
+    this.profileService.updateProfile(this.username);
+  }
   ngOnInit() {
   }
 
