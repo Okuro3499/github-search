@@ -4,8 +4,31 @@
 
 .ghub {
     text-align: center;
+    padding-left: 700px;
+    padding-bottom: 50px;
 }
 
-.paneltitle {
+.panel-title {
+    text-align: center;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.panel-body {
+    padding-left: 100px;
+}
+
+.list-group {
+    padding-right: 50px;
+    padding-top: 60px;
+}
+
+.desc {
+    text-align: center;
+}
+
+.card-footer {
     text-align: center;
 }
